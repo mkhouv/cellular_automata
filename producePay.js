@@ -16,9 +16,7 @@ function gridGenerator(numOfRows) {
 
 }
 
-const grid = gridGenerator(5)
-
-// console.log(grid)
+const grid = gridGenerator(10)
 
 function updateGrid(grid) { //perform one iteration of grid update
 
@@ -32,11 +30,7 @@ function updateGrid(grid) { //perform one iteration of grid update
 
 		for (let k = 0; k < grid.length - 1; k++) { //iterate through columns
 
-
-			// let totalNewBorns = 0;
 			let totalAdults = 0;
-			// let totalSeniors = 0;
-
 			let totalCells = 0;
 
 			//add up the total values for the surrounding cells
@@ -160,7 +154,7 @@ function updateGrid(grid) { //perform one iteration of grid update
 					case 1:
 
 					case 2:
-						console.lo
+
 						mirroredGrid[j][k] = 3; // aging
 
 						break;
@@ -210,15 +204,37 @@ function updateGrid(grid) { //perform one iteration of grid update
 
 	}
 
-	return grid
+	// return grid
+	finalGrid = grid
+}
+
+let finalGrid = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 1, 1, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 2, 0, 0, 0, 0, 0],
+[0, 0, 0, 1, 2, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+[0, 2, 1, 0, 0, 0, 0, 0, 0, 0],
+[0, 2, 0, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+
+function repeatFunction(num) {
+
+	let numberOfTimes = num;
+	let generation = 1
+
+	console.log('Generation', generation)
+	console.log(finalGrid)
+
+	while (numberOfTimes > 0) {
+		updateGrid(finalGrid)
+		numberOfTimes--
+		generation++
+		console.log('Generation', generation)
+		console.log(finalGrid)
+	}
 
 }
 
-
-let testGrid = [[0, 0, 1, 0, 0],
-		[0, 0, 1, 1, 0],
-		[0, 2, 2, 1, 0],
-		[0, 0, 0, 1, 0],
-		[0, 0, 0, 0, 0]]
-
-console.log(updateGrid(testGrid))
+repeatFunction(19)
